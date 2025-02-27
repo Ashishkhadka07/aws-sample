@@ -1,0 +1,12 @@
+version: 0.2
+phases:
+  build:
+    commands:
+      - echo "Building the sample app..."
+  post_build:
+    commands:
+      - echo "Deploying to S3 bucket..."
+      - aws s3 sync ./ s3://ashish-sample11/ --delete
+artifacts:
+  files:
+    - "**/*"
